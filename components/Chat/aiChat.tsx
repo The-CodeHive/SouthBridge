@@ -1,0 +1,11 @@
+import React from 'react'
+
+const AIChat = () => {
+  return (
+    <div>
+        AI Chat
+    </div>
+  )
+}
+
+export default AIChat
