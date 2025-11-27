@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { SelectedFileProvider } from "@/components/FileSystem/selectedFileContext";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -30,10 +31,11 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-
-      <body suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
-      </body>
+        <body suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+          <SelectedFileProvider>
+            {children}
+          </SelectedFileProvider>
+        </body>
     </html>
   );
 }

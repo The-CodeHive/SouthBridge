@@ -1,111 +1,81 @@
+
 export type Node = {
-  name: string
-  nodes?: Node[]
-  id: string
-}
+  name: string;
+  nodes?: Node[];
+  content?: string; 
+  path?: string;
+  id?: string;
+};
 
-// Generate stable unique IDs for each node
-const generateIds = (nodes: Omit<Node, "id">[], prefix = ""): Node[] =>
-  nodes.map((n, i) => ({
-    ...n,
-    id: `${prefix}${i}`,
-    nodes: n.nodes ? generateIds(n.nodes, `${prefix}${i}-`) : undefined,
-  }))
+const assign = (nodes: Node[], base = ""): Node[] =>
+  nodes.map((n, i) => {
+    const id = base === "" ? `${i}` : `${base}/${i}`;
+    const path = base === "" ? n.name : `${base}/${n.name}`;
+    return {
+      ...n,
+      id,
+      path,
+      nodes: n.nodes ? assign(n.nodes, path) : undefined,
+    };
+  });
 
-// Next.js Template Structure
-const rawNodes: Omit<Node, "id">[] = [
+// minimal clean tree
+const raw: Node[] = [
   {
     name: "app",
     nodes: [
       {
-        name: "(site)",
-        nodes: [
-          { name: "layout.tsx" },
-          { name: "page.tsx" },
-          { name: "loading.tsx" },
-          { name: "error.tsx" },
-        ],
+        name: "page.tsx",
+        content: `\n\nexport default function Page() {
+  return <main>Hello World</main>
+}`,
       },
       {
-        name: "api",
-        nodes: [
-          {
-            name: "users",
-            nodes: [{ name: "route.ts" }],
-          },
-          {
-            name: "auth",
-            nodes: [{ name: "route.ts" }],
-          },
-        ],
+        name: "layout.tsx",
+        content: `\n\nexport default function RootLayout({ children }) {
+  return \n   <html>\n    <body>\n      {children}\n     </body>\n   </html>
+}`,
       },
-      { name: "globals.css" },
-      { name: "favicon.ico" },
     ],
   },
 
   {
     name: "components",
     nodes: [
-      { name: "ui", nodes: [] },
-      { name: "navbar.tsx" },
-      { name: "footer.tsx" },
-      { name: "button.tsx" },
+      {
+        name: "Navbar.tsx",
+        content: `\n\nexport default function Navbar() {
+  return <nav className='p-4'>Navbar</nav>
+}`,
+      },
+      {
+        name: "Button.tsx",
+        content: `\n\nexport default function Button({ children }) {
+  return <button className='px-3 py-1'>{children}</button>
+}`,
+      },
     ],
   },
 
   {
     name: "lib",
     nodes: [
-      { name: "utils.ts" },
-      { name: "auth.ts" },
-      { name: "db.ts" },
-    ],
-  },
-
-  {
-    name: "hooks",
-    nodes: [
-      { name: "useMediaQuery.ts" },
-      { name: "useTheme.ts" },
-    ],
-  },
-
-  {
-    name: "context",
-    nodes: [
-      { name: "ThemeProvider.tsx" },
-      { name: "AuthProvider.tsx" },
+      {
+        name: "utils.ts",
+        content: `\n\nexport const add = (a: number, b: number) => a + b`,
+      },
     ],
   },
 
   {
     name: "styles",
     nodes: [
-      { name: "globals.css" },
-      { name: "reset.css" },
+      {
+        name: "globals.css",
+        content: `\n\nbody {\n margin: 0;\n background: #0b1020;\n color: white; \n}`,
+      },
     ],
   },
+];
 
-  {
-    name: "public",
-    nodes: [
-      { name: "images", nodes: [] },
-      { name: "logo.svg" },
-    ],
-  },
-
-  {
-    name: "prisma",
-    nodes: [
-      { name: "schema.prisma" },
-    ],
-  },
-
-  { name: "next.config.js" },
-  { name: "package.json" },
-  { name: "tsconfig.json" },
-  { name: "middleware.ts" },
-]
-
-export const nodes: Node[] = generateIds(rawNodes)
+export const nodes = assign(raw);

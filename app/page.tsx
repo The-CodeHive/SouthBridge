@@ -44,7 +44,6 @@ export default function Home() {
       let newLeft = updated[left] + deltaPercent;
       let newRight = updated[right] - deltaPercent;
 
-      // stop dragging if side would go below its min
       if (newLeft < minLeftPercent || newRight < minRightPercent) return;
 
       updated[left] = newLeft;
@@ -80,31 +79,31 @@ export default function Home() {
     >
       <div
         style={{ width: `${sizes[0]}%` }}
-        className="h-full overflow-hidden rounded-md border border-[#1f2330]"
+        className="h-full overflow-hidden border border-[#1f2330]"
       >
         <AIChat />
       </div>
 
       <div
         onMouseDown={startDrag(0)}
-        className="w-1 cursor-col-resize bg-neutral-900 hover:bg-neutral-700"
+        className="w-0.5 cursor-col-resize bg-slate-900 hover:bg-slate-700"
       ></div>
 
       <div
         style={{ width: `${sizes[1]}%` }}
-        className="h-full overflow-hidden rounded-md border border-[#1f2330]"
+        className="h-full overflow-hidden border border-[#1f2330]"
       >
         <CodeDisplay />
       </div>
 
       <div
         onMouseDown={startDrag(1)}
-        className="w-1 cursor-col-resize bg-neutral-900 hover:bg-neutral-700"
+        className="w-0.5 cursor-col-resize bg-slate-900 hover:bg-slate-700"
       ></div>
 
       <div
         style={{ width: `${sizes[2]}%` }}
-        className="h-full overflow-hidden rounded-md border border-[#1f2330]"
+        className="h-full overflow-hidden border border-[#1f2330]"
       >
         <FileSystem />
       </div>
