@@ -6,7 +6,8 @@ It includes a streaming AI chat interface on the left and a fully interactive fi
 
 ---
 ## Deployed on Vercel
-https://southbridge-jagdeepsingh.vercel.app/
+   https://southbridge-jagdeepsingh.vercel.app/
+   
 ---
 
 ## What I Built
