@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import FileList from "./FileList";
+import FileList from "./utils/FileList";
 
 export default function FileSystem() {
   return (

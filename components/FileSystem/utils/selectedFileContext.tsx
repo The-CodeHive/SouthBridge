@@ -14,7 +14,7 @@ type ContextShape = {
 };
 
 const SelectedFileContext = createContext<ContextShape | undefined>(undefined);
-
+//AI used
 export const SelectedFileProvider = ({ children }: { children: React.ReactNode }) => {
   const [selected, setSelected] = useState<FileEntry | null>(null);
   return (

@@ -18,8 +18,7 @@ const assign = (nodes: Node[], base = ""): Node[] =>
       nodes: n.nodes ? assign(n.nodes, path) : undefined,
     };
   });
-
-// minimal clean tree
+//AI used
 const raw: Node[] = [
   {
     name: "app",

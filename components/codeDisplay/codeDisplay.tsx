@@ -2,7 +2,8 @@
 
 import React from "react";
 import CodeBlock from "./codeBlock";
-import { useSelectedFile } from "@/components/FileSystem/selectedFileContext";
+import { useSelectedFile } from "@/components/FileSystem/utils/selectedFileContext";
+import { X } from "lucide-react";
 
 
 export default function CodeDisplay() {
@@ -10,7 +11,7 @@ export default function CodeDisplay() {
   const code = selected?.content ?? "";
   const filename = selected?.name ?? "";
 
-  return (
+return (
     <div className="h-full w-full flex flex-col ">
 
       <div className="satoshi-medium text-xs w-full border-b border-[#2c2c2c] px-4">
@@ -32,7 +33,7 @@ export default function CodeDisplay() {
               className="inline-flex items-center justify-center h-full px-3 rounded bg-[#11182e] hover:bg-red-950 text-gray-300 text-sm"
               onClick={() => setSelected(null)}
             >
-              ×
+              <X className="w-4 h-4" />
             </button>
           )}
         </div>
