@@ -5,6 +5,9 @@ This project is my implementation of the Southbridge Frontend Take-Home assignme
 It includes a streaming AI chat interface on the left and a fully interactive file viewer on the right, matching every requirement from the official specification.
 
 ---
+## Deployed on Vercel
+https://southbridge-jagdeepsingh.vercel.app/
+---
 
 ## What I Built
 
