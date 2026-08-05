@@ -1,4 +1,4 @@
-# CodeHive — SouthBridge Frontend
+# Engram-IDE Frontend
 
 A Next.js 16 web application presenting an integrated development workspace that combines an AI-assisted chat interface, a syntax-highlighted code viewer, and a file explorer within a single, resizable layout.
 
