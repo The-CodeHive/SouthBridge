@@ -6,7 +6,7 @@ A Next.js 16 web application presenting an integrated development workspace that
 
 ## Overview
 
-CodeHive replicates the core user experience of a modern in-browser IDE. The interface is divided into three resizable panels — chat, code viewer, and file explorer — allowing users to browse a project's file structure, view syntax-highlighted source code, and interact with an AI assistant in a unified workspace.
+Engram-IDE replicates the core user experience of a modern in-browser IDE. The interface is divided into three resizable panels — chat, code viewer, and file explorer — allowing users to browse a project's file structure, view syntax-highlighted source code, and interact with an AI assistant in a unified workspace.
 
 ---
 
@@ -81,7 +81,7 @@ CodeHive replicates the core user experience of a modern in-browser IDE. The int
 ### Installation
 ```bash
 git clone <repository-url>
-cd The-CodeHive-SouthBridge
+cd Engram-IDE
 npm install
 ```
 
