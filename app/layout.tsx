@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SouthBridge",
-  description: "Southbridge hiring process",
+  title: "Engram IDE",
+  description: "An AI-assisted code workspace with chat, code viewer, and file explorer.",
 };
 
 export default function RootLayout({
